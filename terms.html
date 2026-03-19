@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- HTML Meta Tags -->
+        <title>Terms of Service | is-a.dev</title>
+        <meta name="description" content="By using our service, you agree to the following Terms of Service." />
+
+        <!-- Google / Search Engine Tags -->
+        <meta itemprop="name" content="Terms of Service | is-a.dev" />
+        <meta itemprop="description" content="By using our service, you agree to the following Terms of Service." />
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://is-a.dev/terms" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Terms of Service | is-a.dev" />
+        <meta property="og:description" content="By using our service, you agree to the following Terms of Service." />
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Terms of Service | is-a.dev" />
+        <meta name="twitter:description" content="By using our service, you agree to the following Terms of Service." />
+
+        <!-- Files -->
+        <link rel="preload" href="https://raw.githubusercontent.com/is-a-dev/register/refs/heads/main/TERMS_OF_SERVICE.md" as="fetch" crossorigin="anonymous">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" href="styles/secondary.css" />
+        <link rel="stylesheet" href="https://cdn.hrsn.net/is-a-dev/website/fonts/Roboto/font.css" rel="prefetch" />
+        <link rel="stylesheet" href="https://cdn.hrsn.net/is-a-dev/website/fonts/UbuntuMono/font.css" rel="prefetch" />
+
+        <!-- Scripts -->
+        <script src="scripts/marked.min.js" rel="prefetch"></script>
+    </head>
+
+    <body>
+        <div class="markdown-body" id="terms-of-service"><p>Loading...</p></div>
+
+        <script>
+            const markdownUrl = "https://raw.githubusercontent.com/is-a-dev/register/refs/heads/main/TERMS_OF_SERVICE.md";
+
+            const container = document.getElementById("terms-of-service");
+
+            // Fetch the Markdown file
+            fetch(markdownUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error fetching the file: ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    // Convert Markdown to HTML using Marked.js
+                    const htmlContent = marked.parse(markdown);
+
+                    // Insert the HTML into the container
+                    container.innerHTML = htmlContent;
+                })
+                .catch(err => {
+                    console.error(err);
+                    container.innerHTML = `<h3>An error occurred</h3><pre><code>${err}</code></pre>`;
+                });
+        </script>
+    </body>
+</html>
