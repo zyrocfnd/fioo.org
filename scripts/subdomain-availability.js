@@ -30,7 +30,7 @@ async function fetchReservedDomains() {
             if (subdomain) {
                 searchDomain.placeholder = `e.g. ${subdomain}`;
             } else {
-                searchDomain.placeholder = "e.g. william";
+                searchDomain.placeholder = "e.g. kenjiew";
             }
             
         }
