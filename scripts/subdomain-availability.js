@@ -63,7 +63,7 @@ async function check() {
 
     isSearching = true;
     try {
-        const response = await fetch(`https://raw.githubusercontent.com/zyrocfnd/freedomain/main/domains/fioo.org/${search}.json`);
+        const response = await fetch(`https://raw.githubusercontent.com/zyrocfnd/freedomain/main/domains/fioo.org/${search}.fioo.org.json`);
         if (!response.ok && response.status !== 404) throw new Error("Something went wrong");
 
         const data = response.ok ? await response.json() : null;
