@@ -15,10 +15,10 @@ const userGitHubName = document.getElementById("user-gh-name");
 async function fetchReservedDomains() {
     try {
         if (!reservedDomains) {
-            const res1 = await fetch("https://raw.githubusercontent.com/zyrocfnd/freedomain/main/util/reserved.json");
+            const res1 = await fetch("https://raw.githubusercontent.com/zyrocfnd/fioo.org/main/util/reserved.json");
             if (!res1.ok) throw new Error(`Failed to fetch reserved domains: ${res1.statusText}`);
 
-            const res2 = await fetch("https://raw.githubusercontent.com/zyrocfnd/freedomain/main/util/internal.json");
+            const res2 = await fetch("https://raw.githubusercontent.com/zyrocfnd/fioo.org/main/util/internal.json");
             if (!res2.ok) throw new Error(`Failed to fetch internal domains: ${res2.statusText}`);
 
             reservedDomains = [...await res1.json(), ...await res2.json()];
@@ -30,7 +30,7 @@ async function fetchReservedDomains() {
             if (subdomain) {
                 searchDomain.placeholder = `e.g. ${subdomain}`;
             } else {
-                searchDomain.placeholder = "e.g. kenjiew";
+                searchDomain.placeholder = "e.g. kenjiew.fioo.org";
             }
             
         }
